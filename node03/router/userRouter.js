@@ -2,6 +2,19 @@ const express=require('express');
 const User=require('../db/model/userModel.js');
 const router=express.Router();
 
+let codes={};
+/**
+ * @api {post} /user/reg 用户注册
+ * @apiName 用户注册
+ * @apiGroup User
+ *
+ * @apiParam {String}  user 用户名
+ * @apiParam {String}  pas 用户密码
+ *@apiParam {String}   code  验证码
+ * 
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
 router.post('/reg',(req,res)=>{
 	//获取数据
 	let {code,user,pas}=req.body;
@@ -31,6 +44,19 @@ router.post('/reg',(req,res)=>{
 	//数据处理
 	//返回数据
 })
+
+
+/**
+ * @api {post} /user/reg 用户登录
+ * @apiName 用户登录
+ * @apiGroup User
+ *
+ * @apiParam {String}  user 用户名
+ * @apiParam {String}  pas 用户密码
+ * 
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
 router.post('/login',(req,res)=>{
 	let {user,pas}=req.body;
 	if(!user||!pas){

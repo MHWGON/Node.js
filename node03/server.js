@@ -5,6 +5,7 @@ const app=express();
 const Mail=require('./utils/mail.js');
 
 let codes={};
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
  
